@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /login.html
+Disallow: /student-
+Disallow: /pending-
+Disallow: /activity-log.html
+Disallow: /settings.html

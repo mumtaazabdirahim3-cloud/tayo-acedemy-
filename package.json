@@ -1,0 +1,8 @@
+{
+  "name": "tayo-academy",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node --watch server/index.js", "start": "node server/index.js", "db:generate": "prisma generate", "db:migrate": "prisma migrate dev", "db:deploy": "prisma migrate deploy", "seed": "node prisma/seed.js", "migrate:legacy": "node scripts/migrate-legacy.js" },
+  "dependencies": { "@prisma/client": "^6.0.0", "bcrypt": "^5.1.1", "connect-pg-simple": "^10.0.0", "cors": "^2.8.5", "dotenv": "^16.4.7", "express": "^4.21.2", "express-rate-limit": "^7.4.1", "express-session": "^1.18.1", "helmet": "^8.0.0", "zod": "^3.24.1" },
+  "devDependencies": { "prisma": "^6.0.0" }
+}

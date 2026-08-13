@@ -68,6 +68,8 @@ a { color: inherit; text-decoration: none; }
 .btn-sm { padding: 7px 10px; font-size: 12px; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 21px; }
 .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+.pending-account-card { display: block; cursor: pointer; }
+.pending-account-card:hover { border-color: var(--primary); }
 .stat-card:after { content: ""; position: absolute; height: 3px; inset: auto 0 0; background: var(--stat-color, var(--primary)); }
 .stat-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; font-weight: 700; }
 .stat-icon { font-size: 20px; }
