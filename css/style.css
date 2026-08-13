@@ -41,6 +41,7 @@ a { color: inherit; text-decoration: none; }
 .nav a { padding: 11px 13px; border-radius: 9px; color: var(--sidebar-muted); display: flex; align-items: center; gap: 12px; transition: .2s; }
 .nav a:hover, .nav a.active { background: #1c3d68; color: #fff; }
 .nav-icon { width: 20px; text-align: center; font-size: 16px; }
+.nav-count { display: inline-grid; min-width: 17px; height: 17px; margin-left: 4px; place-items: center; border-radius: 50%; background: var(--primary); color: #fff; font-size: 10px; }
 .sidebar-foot { margin-top: auto; border-top: 1px solid rgba(255,255,255,.1); padding: 17px 13px 0; color: var(--sidebar-muted); font-size: 12px; line-height: 1.5; }
 .sidebar-foot strong { color: #fff; display: block; }
 .sidebar-logout { display: block; margin-top: 10px; padding: 0; border: 0; background: none; color: #c7d9ef; font-size: 12px; }
@@ -146,6 +147,18 @@ tr:last-child td { border-bottom: 0; }
 .profile-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 .profile-header h3 { margin: 0 0 4px; font-size: 20px; }
 .profile-photo { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: #dbeafe; color: var(--primary-dark); font-weight: 800; font-size: 20px; }
+.student-summary { display: flex; align-items: center; gap: 16px; margin-bottom: 21px; }
+.student-summary h3 { margin: 0 0 5px; font-size: 21px; }
+.student-summary span, .student-summary p { color: var(--muted); margin: 0; }
+.student-summary p { margin-top: 4px; font-size: 12px; }
+.student-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); }
+.student-photo-lg, .profile-photo.student-photo-lg { width: 78px; height: 78px; flex: 0 0 78px; font-size: 23px; }
+.profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.profile-grid > div { display: grid; gap: 4px; padding: 12px; border: 1px solid var(--line); background: var(--surface-soft); border-radius: 8px; }
+.profile-grid span { color: var(--muted); font-size: 11px; }
+.profile-grid strong { font-size: 13px; overflow-wrap: anywhere; }
+.profile-grid .profile-wide { grid-column: 1 / -1; }
+.notification-unread { background: #eef5ff; }
 .exam-question { margin: 18px 0; padding: 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
 .exam-question legend { padding: 0 5px; font-weight: 700; }
 .exam-question > strong { display: block; margin-bottom: 12px; }
@@ -165,9 +178,18 @@ tr:last-child td { border-bottom: 0; }
 .login-submit { width: 100%; margin-top: 3px; }
 .login-help { display: grid; gap: 4px; margin-top: 23px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 .login-help strong { color: var(--text); }
+.registration-panel { width: min(620px, 100%); }
+.registration-panel .form-grid { margin-bottom: 15px; }
+.login-link { width: 100%; margin-top: 14px; border: 0; background: none; color: var(--primary); font-weight: 700; }
+.login-link:hover { text-decoration: underline; }
+.login-note { margin: 15px 0 0; color: var(--muted); text-align: center; font-size: 11px; line-height: 1.5; }
+.success { min-height: 16px; margin: 0; color: #10845b; font-size: 12px; }
+.password-field { position: relative; }
+.password-field .form-group { padding-right: 62px; }
+.password-toggle { position: absolute; right: 9px; bottom: 10px; border: 0; background: none; color: var(--primary); font-size: 12px; font-weight: 700; }
 .toast { position: fixed; right: 24px; bottom: 24px; background: #172033; color: #fff; padding: 13px 17px; border-radius: 8px; box-shadow: var(--shadow); z-index: 50; animation: slideUp .25s ease; }
 @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 .print-only { display: none; }
 @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .timetable-grid { overflow-x: auto; } }
-@media (max-width: 760px) { .sidebar { width: 66px; padding: 18px 8px; } .brand { padding: 0 6px 24px; } .brand > div:last-child, .nav-label, .nav a span:not(.nav-icon), .sidebar-foot { display: none; } .nav a { justify-content: center; padding: 12px 5px; } .nav-icon { font-size: 18px; } .main { margin-left: 66px; width: calc(100% - 66px); } .topbar { padding: 0 17px; height: 69px; } .school-pill { display: none; } .content { padding: 22px 17px 40px; } .page-heading { align-items: flex-start; flex-direction: column; } .page-heading h2 { font-size: 22px; } .form-grid { grid-template-columns: 1fr; } .form-group.full { grid-column: auto; } .settings-layout { grid-template-columns: 1fr; } .stats-grid { gap: 10px; } .stat-card { padding: 14px; } .stat-value { font-size: 22px; } .bar-row { grid-template-columns: 92px 1fr 36px; gap: 7px; } .login-panel { padding: 26px 22px; } }
+@media (max-width: 760px) { .sidebar { width: 66px; padding: 18px 8px; } .brand { padding: 0 6px 24px; } .brand > div:last-child, .nav-label, .nav a span:not(.nav-icon), .sidebar-foot { display: none; } .nav a { justify-content: center; padding: 12px 5px; } .nav-icon { font-size: 18px; } .nav-count { position: absolute; margin: -12px 0 0 16px; } .main { margin-left: 66px; width: calc(100% - 66px); } .topbar { padding: 0 17px; height: 69px; } .school-pill { display: none; } .content { padding: 22px 17px 40px; } .page-heading { align-items: flex-start; flex-direction: column; } .page-heading h2 { font-size: 22px; } .form-grid, .profile-grid { grid-template-columns: 1fr; } .form-group.full, .profile-grid .profile-wide { grid-column: auto; } .settings-layout { grid-template-columns: 1fr; } .stats-grid { gap: 10px; } .stat-card { padding: 14px; } .stat-value { font-size: 22px; } .bar-row { grid-template-columns: 92px 1fr 36px; gap: 7px; } .login-panel { padding: 26px 22px; } .student-summary { align-items: flex-start; } }
 @media print { .sidebar, .topbar, .page-heading .actions, .toolbar, .row-actions, .btn, .settings-menu { display: none !important; } .main { margin: 0; width: 100%; } .content { padding: 0; } .panel { box-shadow: none; border: 1px solid #ddd; } .print-only { display: block; } body { background: #fff; color: #111; } }
