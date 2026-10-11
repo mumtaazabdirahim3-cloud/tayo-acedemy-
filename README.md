@@ -39,4 +39,18 @@ Host this Node service (for example Render, Railway, Fly.io, or a VPS) and a man
 - `PATCH|DELETE /api/:resource/:id`
 - `GET /api/admin/pending-students`, `POST /api/admin/users/:id/approve`, `POST /api/admin/users/:id/reject`
 
+## Course enrollment and administrator password resets
+
+Apply the included additive migration before starting the updated application:
+
+```powershell
+npm install
+npm run db:generate
+npm run db:deploy
+```
+
+Administrators can open **Students** or **Teachers** and select **Reset account password**. The generated temporary password is returned to that administrator once only; passwords remain bcrypt hashes and the affected user's active sessions are revoked.
+
+Students can open **Courses** to search courses, view their details, enroll, or withdraw. The server derives the student from the authenticated session, enforces course availability/capacity, and prevents duplicate active enrollments.
+
 The password reset request intentionally needs an email provider integration before it can deliver its one-time token. No email credentials are invented or committed here.
